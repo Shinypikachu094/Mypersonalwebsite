@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Samuel's portfolio — a computer science student building thoughtful, useful technology.">
+  <title>Samuel — Student &amp; Curious Builder</title>
+  <style>
+    :root { --ink:#17234d; --muted:#53617f; --paper:#f7fbff; --card:#fff; --line:#d8e3f1; --blue:#2868d8; --red:#e94155; --yellow:#f5ba32; --purple:#8a55d9; --green:#27a878; --shadow:0 20px 60px rgba(39,74,133,.14); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { position:relative; margin:0; background:radial-gradient(circle at 12% 18%, #fff 0 2px, transparent 3px), radial-gradient(circle at 84% 64%, #fff 0 2px, transparent 3px), linear-gradient(135deg,#f7fbff,#eef5ff 48%,#fff8ef); background-size:150px 150px,190px 190px,auto; color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.5; }
+    body::before { position:fixed; inset:0; z-index:-1; content:""; opacity:.18; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 120 120'%3E%3Ccircle cx='60' cy='60' r='48' fill='%23f7fbff' stroke='%23283652' stroke-width='3'/%3E%3Cpath d='M12 60a48 48 0 0 1 96 0H12Z' fill='%23e94155'/%3E%3Cpath d='M12 60h96' stroke='%23283652' stroke-width='7'/%3E%3Ccircle cx='60' cy='60' r='14' fill='%23f7fbff' stroke='%23283652' stroke-width='4'/%3E%3Ccircle cx='60' cy='60' r='5' fill='%23f5ba32'/%3E%3C/svg%3E"); background-repeat:repeat; pointer-events:none; }
+    a { color:inherit; }
+    .wrap { width:min(1120px,calc(100% - 40px)); margin:0 auto; }
+    header { padding:28px 0; }
+    nav { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; text-align:center; }
+    .logo { color:var(--blue); font-size:16px; font-weight:900; letter-spacing:.08em; text-decoration:none; text-transform:uppercase; text-shadow:2px 2px 0 #f9d34d; }
+    .nav-links { display:flex; gap:28px; color:var(--purple); font-size:13px; font-weight:700; }
+    .nav-links a { text-decoration:none; }
+    .nav-links a:hover { color:var(--red); }
+    .hero { position:relative; display:grid; grid-template-columns:1fr; justify-items:center; align-items:center; gap:35px; min-height:570px; padding:80px 0 110px; overflow:hidden; text-align:center; }
+    .eyebrow { color:var(--red); font-size:12px; font-weight:900; letter-spacing:.16em; text-transform:uppercase; }
+    h1 { max-width:720px; margin:18px 0 24px; color:var(--blue); font-size:clamp(48px,8vw,92px); line-height:.96; letter-spacing:-.075em; text-shadow:3px 3px 0 #f8d34e; }
+    h1 span { color:var(--red); }
+    .hero-copy { max-width:570px; margin-left:auto; margin-right:auto; color:var(--muted); font-size:18px; }
+    .actions { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; margin-top:32px; }
+    .button { display:inline-block; padding:12px 18px; border:1px solid var(--blue); border-radius:99px; color:#fff; background:var(--blue); font-size:13px; font-weight:800; text-decoration:none; }
+    .button.secondary { color:var(--red); border-color:var(--red); background:transparent; }
+    .button:hover { background:var(--purple); border-color:var(--purple); }
+    .button.secondary:hover { color:#fff; }
+    .hero-art { position:relative; width:min(100%,420px); min-height:300px; }
+    .orb { position:absolute; top:20px; right:7%; width:min(320px,75vw); aspect-ratio:1; border:8px solid #fff; border-radius:50%; background:linear-gradient(#ef4b5b 0 47%,#18274e 48% 52%,#f7fbff 53%); box-shadow:0 18px 45px #2868d844; transform:rotate(18deg); }
+    .orb:before,.orb:after { position:absolute; content:""; border-radius:50%; }
+    .orb:before { top:42%; left:42%; width:19%; aspect-ratio:1; border:8px solid #18274e; background:#fff; box-shadow:0 0 0 5px #fff; }
+    .orb:after { display:none; }
+    .note { position:absolute; top:50%; left:50%; z-index:2; width:205px; padding:14px 12px; border:2px solid var(--blue); border-radius:14px; background:rgba(255,255,255,.94); box-shadow:0 8px 24px rgba(39,74,133,.24); font-size:12px; text-align:center; transform:translate(-50%,-50%) rotate(-18deg); }
+    .note strong { display:block; margin-bottom:4px; color:var(--red); font-size:15px; letter-spacing:.12em; text-transform:uppercase; }
+    section { padding:86px 0; border-top:1px solid var(--line); }
+    .section-heading { display:block; max-width:720px; margin:0 auto 30px; text-align:center; }
+    h2 { margin:0; color:var(--purple); font-size:clamp(30px,4vw,48px); line-height:1; letter-spacing:-.055em; text-shadow:2px 2px 0 #f8d34e; }
+    .section-heading p { max-width:520px; margin:16px auto 0; color:var(--muted); font-size:14px; }
+    .project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .project { min-height:250px; padding:24px; border:2px solid #cddcf0; border-radius:18px; background:rgba(255,255,255,.9); box-shadow:var(--shadow); }
+    .project-number { color:var(--red); font-size:13px; font-weight:900; }
+    .project-image { display:block; width:100%; aspect-ratio:16/9; margin:18px 0 0; border:1px solid var(--line); border-radius:12px; object-fit:cover; box-shadow:var(--shadow); }
+    .project h3 { margin:55px 0 8px; font-size:21px; letter-spacing:-.03em; }
+    .project p { margin:0; color:var(--muted); font-size:14px; }
+    .project a { display:inline-block; margin-top:20px; color:var(--blue); font-size:13px; font-weight:800; text-decoration:none; }
+    .project a:hover { text-decoration:underline; }
+    .about-grid { display:grid; grid-template-columns:1fr; justify-items:center; gap:30px; }
+    .about-grid p { max-width:780px; margin:0 auto; color:var(--muted); font-size:17px; text-align:center; }
+    .skill-list { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; align-content:start; }
+    .skill { padding:9px 13px; border:1px solid #bfd0e7; border-radius:99px; background:var(--card); color:var(--blue); font-size:13px; font-weight:700; }
+    .contact { display:grid; grid-template-columns:1fr; gap:28px; justify-items:center; align-items:center; padding-bottom:110px; text-align:center; }
+    .contact-copy p { max-width:560px; margin-left:auto; margin-right:auto; color:var(--muted); font-size:16px; }
+    .links { display:grid; width:min(100%,520px); gap:10px; }
+    .link-card { display:flex; align-items:center; justify-content:space-between; padding:17px 20px; border:1px solid #bfd0e7; border-radius:13px; background:var(--card); color:var(--blue); font-size:14px; font-weight:800; text-decoration:none; }
+    .link-card span { color:var(--muted); font-size:12px; font-weight:500; }
+    .link-card:hover { border-color:var(--green); transform:translateX(3px); }
+    footer { padding:22px 0 30px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; }
+    footer .wrap { display:flex; justify-content:center; gap:20px; text-align:center; }
+    @media (max-width:760px) {
+      .wrap { width:min(100% - 32px,600px); }
+      header { padding:21px 0; }
+      .nav-links { gap:13px; font-size:12px; }
+      .hero { grid-template-columns:1fr; gap:30px; min-height:auto; padding:68px 0 84px; }
+      .hero-art { min-height:260px; }
+      .orb { right:14%; width:230px; }
+      .note { top:50%; left:50%; right:auto; bottom:auto; transform:translate(-50%,-50%) rotate(-18deg); }
+      section { padding:65px 0; }
+      .section-heading { display:block; }
+      .section-heading p { margin-top:16px; }
+      .project-grid,.about-grid,.contact { grid-template-columns:1fr; gap:16px; }
+      .about-grid { gap:30px; }
+      .contact { padding-bottom:75px; }
+      .hero, .section-heading, .project, .about-grid, .contact, footer { text-align:center; }
+      .hero-copy, .section-heading p, .about-grid p, .contact-copy p { margin-left:auto; margin-right:auto; }
+      .actions, .skill-list, .links { justify-content:center; }
+      .section-heading { align-items:center; }
+      .link-card { text-align:left; }
+      footer .wrap { flex-direction:column; gap:5px; }
+    }
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><nav aria-label="Primary navigation"><a class="logo" href="#top">Samuel</a><div class="nav-links"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav></div></header>
+  <main id="top"><div class="wrap">
+    <section class="hero" aria-labelledby="intro-title"><div><div class="eyebrow">Student · Curious builder · Life enthusiast</div><h1 id="intro-title">I’m Samuel. I’m here to <span>understand</span> how things work.</h1><p class="hero-copy">I’m a student interested in life, people, and the ideas that connect them. I’m building this space to share what I learn, make, and notice along the way.</p><div class="actions"><a class="button" href="#work">See my work</a><a class="button secondary" href="#contact">Get in touch</a></div></div><div class="hero-art" aria-hidden="true"><div class="orb"><div class="note"><strong>Samuel</strong>Computer science student · curious builder</div></div></div></section>
+    <section id="work" aria-labelledby="work-title"><div class="section-heading"><h2 id="work-title">Selected work</h2><p>A few projects I’m planning to build and document here. Check back as this portfolio grows.</p></div><div class="project-grid"><article class="project"><div class="project-number">01 / Featured project</div><img class="project-image" src="pulse-field-screenshot.png" alt="Pulse Field game over screen showing the player’s survival score"><h3>Pulse Field</h3><p>A browser-based survival game where players collect pellets, grow their cell, and outmaneuver larger hunters. Built as a self-contained HTML, CSS, and JavaScript experience.</p><a href="game.html">Play the game →</a></article><article class="project"><div class="project-number">02 / Coming soon</div><h3>Project placeholder</h3><p>A short description of a project, the tools used, and the result I’m proudest of.</p><a href="#contact">View project →</a></article><article class="project"><div class="project-number">03 / Coming soon</div><h3>Project placeholder</h3><p>A short description of an experiment, an open question, or a new direction I’m exploring.</p><a href="#contact">View project →</a></article></div></section>
+    <section id="about" aria-labelledby="about-title"><div class="section-heading"><h2 id="about-title">A little about me</h2><p>Learning deeply, building thoughtfully, and growing through practical work.</p></div><div class="about-grid"><p>I’m Samuel, a computer science student who enjoys turning challenging problems into clear, useful solutions. My interests span software development, web technologies, user-focused design, and the systems that make digital products reliable. Through coursework, personal projects, and hands-on experimentation, I’ve been building experience with planning features, writing and debugging code, organizing information, and explaining technical ideas clearly. I’m comfortable learning new tools quickly, collaborating with others, and taking a project from an early concept through implementation and refinement. I’m especially motivated by work that combines analytical thinking with creativity and creates a practical benefit for the people using it.</p><div class="skill-list" aria-label="Skills and interests"><span class="skill">Computer science</span><span class="skill">Software development</span><span class="skill">Web technologies</span><span class="skill">Problem solving</span><span class="skill">Debugging</span><span class="skill">Project planning</span><span class="skill">Research</span><span class="skill">Communication</span><span class="skill">Teamwork</span><span class="skill">Curiosity</span></div></div></section>
+    <section id="contact" class="contact" aria-labelledby="contact-title"><div class="contact-copy"><div class="eyebrow">Let’s connect</div><h2 id="contact-title">Interested in what comes next?</h2><p>Recruiters, collaborators, and curious people are welcome to reach out. I’m always interested in thoughtful conversations about technology, projects, and opportunities to learn through meaningful work.</p></div><div class="links"><a class="link-card" href="mailto:10293756@gmail.com">Email <span>10293756@gmail.com ↗</span></a><a class="link-card" href="tel:4121414114">Phone <span>412-141-4114 ↗</span></a><div class="link-card">Name <span>Samuel</span></div></div></section>
+  </div></main>
+  <footer><div class="wrap"><span>© 2026 Samuel</span><span>Built with HTML &amp; CSS.</span></div></footer>
+</body>
+</html>
